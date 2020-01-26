@@ -1,7 +1,23 @@
 #pragma once
 #include <iostream>
 #include <stdlib.h>
+#include <iostream>
+#include <string>
 #include "PustyStos.h"
+
+class Stos_Exception : public std::exception
+{
+	std::string _msg;
+public:
+	Stos_Exception(const std::string& msg) : _msg(msg) {}
+
+	virtual const char* what() const noexcept override
+	{
+		return _msg.c_str();
+	}
+};
+
+
 template <typename typ>
 class stos
 {
@@ -49,23 +65,25 @@ public:
 		zmienna[size - 1] = p_zmienna;
 	};
 	typ takeoff() {
-		try {
+		if(size == 0) {
+			throw Stos_Exception("Stos pusty");
+		}
+		else
+		{
 			stos temp;
 			temp.size = size;
 			temp.zmienna = new typ[temp.size];
 			for (int i = 0; i < temp.size; i++) {
 				temp.zmienna[i] = zmienna[i];
 			}
-				size = size - 1;
+			size = size - 1;
 			zmienna = new typ[size];
 			for (int i = 0; i < size; i++) {
 				zmienna[i] = temp.zmienna[i];
 			}
 
 			return temp.zmienna[temp.size - 1];
-		}
-		catch (std::bad_array_new_length) {
-			PustyStos pustyStos;
+			
 		}
 	};
 	void erase() {

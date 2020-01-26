@@ -42,7 +42,13 @@ void testInt() {
 	nowy_dwa.erase();
 	cout << "Nowy dwa został wyczyszczony, jego romiar: " << nowy_dwa.get_size() << endl;
 
-	nowy_dwa.takeoff();
+	try {
+		nowy_dwa.takeoff();
+	}
+	catch (Stos_Exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 void testDouble() {
 	srand(time(0));
@@ -80,8 +86,13 @@ void testDouble() {
 
 	nowy_dwa.erase();
 	cout << "Nowy dwa zostal wyczyszczony, jego romiar: " << nowy_dwa.get_size() << endl;
-
-	nowy_dwa.takeoff();
+	try {
+		nowy_dwa.takeoff();
+	}
+	catch (Stos_Exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 int main()
 {

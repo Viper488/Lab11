@@ -152,10 +152,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Lab11.cpp" />
-    <ClCompile Include="PustyStos.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PustyStos.h" />
     <ClInclude Include="stos.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
