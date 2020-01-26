@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "PustyStos.h"
-template <class typ>
+template <typename typ>
 class stos
 {
 private:
