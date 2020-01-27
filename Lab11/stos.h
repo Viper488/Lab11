@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
-#include "PustyStos.h"
 
 class Stos_Exception : public std::exception
 {
